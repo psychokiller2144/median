@@ -19,7 +19,8 @@ export class ArticlesService {
 
   findOne(id: number) {
     //return `This action returns a #${id} article`;
-    return `Aqui esta el dilema ...`;
+    //return `Aqui esta el dilema ...`;
+    return this.prisma.article.findUnique({ where: { id } });
   }
 
   update(id: number, updateArticleDto: UpdateArticleDto) {
