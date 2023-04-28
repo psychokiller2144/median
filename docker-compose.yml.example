@@ -1,0 +1,18 @@
+# docker-compose.yml
+# the file name should be docker-compose.yml, without .example
+version: '3.8'
+services:
+
+  postgres:
+    image: postgres:13.5
+    restart: always
+    environment:
+      - POSTGRES_USER=you must place a user here
+      - POSTGRES_PASSWORD=you must put a password here
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+volumes:
+  postgres:
