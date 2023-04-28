@@ -16,11 +16,11 @@ export class ArticlesController {
   findAll() {
     return this.articlesService.findAll();
   }
-
+  /*
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.articlesService.findOne(+id);
-  }
+  }*/
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateArticleDto: UpdateArticleDto) {
@@ -30,5 +30,10 @@ export class ArticlesController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.articlesService.remove(+id);
+  }
+  
+  @Get('drafts')
+  findDrafts() {
+    return this.articlesService.findDrafts();
   }
 }

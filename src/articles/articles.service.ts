@@ -18,7 +18,8 @@ export class ArticlesService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} article`;
+    //return `This action returns a #${id} article`;
+    return `Aqui esta el dilema ...`;
   }
 
   update(id: number, updateArticleDto: UpdateArticleDto) {
@@ -27,5 +28,9 @@ export class ArticlesService {
 
   remove(id: number) {
     return `This action removes a #${id} article`;
+  }
+
+  findDrafts(){
+    return this.prisma.article.findMany({ where: { published: false } });
   }
 }

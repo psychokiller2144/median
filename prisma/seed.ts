@@ -6,8 +6,10 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 async function main() {
+
   // create two dummy articles
-  const post1 = await prisma.article.upsert({
+  
+  /*const post1 = await prisma.article.upsert({
     where: { title: 'Prisma Adds Support for MongoDB' },
     update: {},
     create: {
@@ -17,8 +19,9 @@ async function main() {
         "We are excited to share that today's Prisma ORM release adds stable support for MongoDB!",
       published: false,
     },
-  });
+  }); */
 
+  /*
   const post2 = await prisma.article.upsert({
     where: { title: "What's new in Prisma? (Q1/22)" },
     update: {},
@@ -29,9 +32,13 @@ async function main() {
         'Learn about everything in the Prisma ecosystem and community from January to March 2022.',
       published: true,
     },
-  });
+  }); 
 
   console.log({ post1, post2 });
+  */
+
+  const drafts = await prisma.article.findMany({ where: { published: false } });
+  console.log(drafts);
 }
 
 // execute the main function
